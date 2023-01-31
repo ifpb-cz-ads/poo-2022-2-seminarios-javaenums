@@ -1,3 +1,5 @@
+package src;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,10 +17,10 @@ public class LojaTeste {
         tamanhos.add("G");
 
 
-        Roupa regata = new Camisa("Regata", tamanhos, false, CorDaRoupa.azul, 35.5, .15, "sem manga", false);
+        Roupa vestido = new Vestido("Vestido Longo", tamanhos, false, CorDaRoupa.preto, "longa" ,"sem manga",50, .20);
 
-        System.out.println("\n" + regata.roupaInfo());
-
-        System.out.printf("%n%.2f", regata.calculaPreco("M"));
+        System.out.println("\n" + vestido.roupaInfo());
+        String tamanhoVestido = "G";
+        System.out.printf("%nPreço tamanho %s: R$%.2f", tamanhoVestido,vestido.calculaPreco(tamanhoVestido));
     }   
 }

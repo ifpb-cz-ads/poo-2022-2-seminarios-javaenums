@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +16,8 @@ public class Chinelo extends Roupa {
         return resultado;
     }
 
-    public Chinelo(String nome, Boolean espampa, CorDaRoupa corDaRoupa, double precoMin, double fator, String material, int tamMin, int tamMax) {
-        super(nome, null, espampa, corDaRoupa, precoMin, fator);
+    public Chinelo(String nome, Boolean estampa, CorDaRoupa corDaRoupa, double precoMin, double fator, String material, int tamMin, int tamMax) {
+        super(nome, null, estampa, corDaRoupa, precoMin, fator);
         super.tamanhos = calcularTamanhos(tamMin, tamMax);
         this.material = material;
     }
@@ -25,7 +27,7 @@ public class Chinelo extends Roupa {
 
         String temEstampa;
 
-        if (espampa) temEstampa = "sim";
+        if (estampa) temEstampa = "sim";
         else temEstampa = "não";
 
         return String.format("- %s%nTamanhos disponíveis: %s%nCor do chinelo: %s%nEstampa: %s%nPreço mínimo: %.2f",

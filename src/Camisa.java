@@ -1,11 +1,13 @@
+package src;
+
 import java.util.List;
 
 public class Camisa extends Roupa{
     public String manga;
     public boolean gola;
 
-    public Camisa(String nome, List<String> tamanhos, Boolean espampa, CorDaRoupa corDaRoupa, double precoMin, double fator, String manga, boolean gola) {
-        super(nome, tamanhos, espampa, corDaRoupa, precoMin, fator);
+    public Camisa(String nome, List<String> tamanhos, Boolean estampa, CorDaRoupa corDaRoupa, double precoMin, double fator, String manga, boolean gola) {
+        super(nome, tamanhos, estampa, corDaRoupa, precoMin, fator);
         this.manga = manga;
         this.gola = gola;
     }
@@ -14,7 +16,7 @@ public class Camisa extends Roupa{
     public String roupaInfo() {
         String temEstampa;
         String golaAlta;
-        if (espampa) temEstampa = "sim";
+        if (estampa) temEstampa = "sim";
         else temEstampa = "não";
 
         if (gola) golaAlta = "sim";

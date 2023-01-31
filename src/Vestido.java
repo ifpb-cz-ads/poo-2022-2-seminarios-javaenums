@@ -1,13 +1,12 @@
-package src;
 import java.util.List;
 
 public class Vestido extends Roupa{
     public String tamanhoSaia;
     public String manga;
     
-    public Vestido(String nome, List<String> tamanhos, Boolean espampa, CorDaRoupa corDaRoupa, String tamanhoSaia, String manga,
-    double  precoMin, double fator) {
-        super(nome, tamanhos, espampa, corDaRoupa,precoMin,fator);
+    public Vestido(String nome, List<String> tamanhos, Boolean estampa, CorDaRoupa corDaRoupa, double  precoMin, double fator,
+                   String tamanhoSaia, String manga) {
+        super(nome, tamanhos, estampa, corDaRoupa,precoMin,fator);
         this.tamanhoSaia = tamanhoSaia;
         this.manga = manga;
     }

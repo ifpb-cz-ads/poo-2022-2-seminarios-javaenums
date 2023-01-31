@@ -1,5 +1,3 @@
-package src;
-
 public enum CorDaRoupa {
-    preto, cinza, branco, verde, vermelho, azul, rosa, amarelo
+    PRETO, CINZA, BRANCO, VERDE, VERMELHO, AZUL, ROSA, AMARELO
 }

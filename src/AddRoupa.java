@@ -162,7 +162,30 @@ public class AddRoupa {
     }
 
     private CorDaRoupa setCor() {
-        return null;
+        CorDaRoupa corDaRoupa = null;
+        int resp;
+        do {
+            System.out.println("Qual a cor da peça?");
+            for (CorDaRoupa cor : CorDaRoupa.values()) {
+                System.out.printf("%d- %s%n", cor.ordinal() + 1, cor.name().toLowerCase());
+            }
+            Scanner scanner = new Scanner(System.in);
+            resp = scanner.nextInt();
+
+            switch (resp) {
+                case 1: corDaRoupa = CorDaRoupa.PRETO; break;
+                case 2: corDaRoupa = CorDaRoupa.CINZA; break;
+                case 3: corDaRoupa = CorDaRoupa.BRANCO; break;
+                case 4: corDaRoupa = CorDaRoupa.VERDE; break;
+                case 5: corDaRoupa = CorDaRoupa.VERMELHO; break;
+                case 6: corDaRoupa = CorDaRoupa.AZUL; break;
+                case 7: corDaRoupa = CorDaRoupa.ROSA; break;
+                case 8: corDaRoupa = CorDaRoupa.AMARELO; break;
+                default: System.out.println("Opção inválida!");
+            }
+        } while (resp < 1 || resp > CorDaRoupa.values().length);
+
+        return corDaRoupa;
     }
 
     private boolean hasEstampa() {

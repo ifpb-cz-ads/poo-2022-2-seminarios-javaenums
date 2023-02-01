@@ -20,5 +20,16 @@ public class LojaTeste {
         System.out.println("\n" + vestido.roupaInfo());
         String tamanhoVestido = "G";
         System.out.printf("%nPreço tamanho %s: R$%.2f", tamanhoVestido,vestido.calculaPreco(tamanhoVestido));
-    }   
+
+        List<String> tamanhosBermuda = new ArrayList<>();
+        tamanhosBermuda.add("PP");
+        tamanhosBermuda.add("P");
+        tamanhosBermuda.add("M");
+        tamanhosBermuda.add("G");
+
+        Roupa bermuda = new Bermudas("Shorts Listrado", tamanhosBermuda, true, CorDaRoupa.CINZA, 20, .13, true, "masculino");
+
+        System.out.println("\n" + bermuda.roupaInfo());
+        System.out.printf("%nPreço tamanho %s: R$%.2f", tamanhoVestido, bermuda.calculaPreco(tamanhoVestido));
+    }
 }

@@ -26,6 +26,7 @@ public class AddRoupa {
             resp2 = scanner.nextLine();
             if (resp2.equalsIgnoreCase("s\n")) resp1 = -1;
         } while (resp1 != 0);
+        scanner.close();
     }
 
     public Roupa addCamisa() {
@@ -59,8 +60,10 @@ public class AddRoupa {
         double precoMin = setPrecoMin();
         double fator = setFator();
 
+        scanner.close();
         return new Camisa(nome, tamanhos, estampa, corDaRoupa, precoMin, fator, manga, gola);
     }
+    
 
     public Roupa addVestido() {
         String nome = setNome();
@@ -94,11 +97,48 @@ public class AddRoupa {
         return new Chinelo(nome, estampa, corDaRoupa, precoMin, fator, material, tamMin, tamMax);
     }
 
+    public Roupa addBermudas(){
+        String nome = setNome();
+        List<String> tamanhos = setTamanhos();
+        CorDaRoupa corDaRoupa = setCor();
+        Boolean estampa = hasEstampa();
+        Boolean bolso;
+        String genero = "";
+        // Resto do método
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nPossui bolsos (s/n)? ");
+        String resp1 = scanner.next();
+        resp1 = scanner.nextLine();
+        if (resp1.equalsIgnoreCase("s")) bolso = true;
+        else bolso = false;
+        
+        int resp2;
+        do {
+            System.out.println("\nQual é o gênero da peça?\n1- Masculina\n2- Feminina\n3- Unissex");
+            resp2 = scanner.nextInt();
+
+            switch (resp2) {
+                case 1: genero = "masculina"; break;
+                case 2: genero = "feminina"; break;
+                case 3: genero = "unissex"; break;
+                default: System.out.println("Opção inválida!");
+            }
+        } while (resp2 < 1 || resp2 > 3);
+
+        double precoMin = setPrecoMin();
+        double fator = setFator();
+
+        scanner.close();
+        return new Bermudas(nome, tamanhos, estampa, corDaRoupa, precoMin, fator, bolso, genero);
+    }
+
     /** MÉTODOS GERAIS */
 
     private String setNome() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nInsira o nome da peça: ");
+        scanner.close();
         return scanner.nextLine();
     }
 
@@ -113,6 +153,7 @@ public class AddRoupa {
             if (!resp.equals("0")) tamanhos.add(resp);
         } while (!resp.equals("0"));
 
+        scanner.close();
         return tamanhos;
     }
 
@@ -124,19 +165,23 @@ public class AddRoupa {
         System.out.print("\nA peça possui estampa (s/n)? ");
         Scanner scanner = new Scanner(System.in);
         String resp = scanner.nextLine();
+        scanner.close();
         return resp.equalsIgnoreCase("s");
     }
 
     private double setPrecoMin() {
         System.out.print("\nQual é o preço do menor tamnaho da peça? ");
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextDouble();
+        double resp = scanner.nextDouble();
+        scanner.close();
+        return resp;
     }
 
     private double setFator() {
         System.out.print("\nO quanto o preço aumenta de acordo com o tamanho da peça (%)? ");
         Scanner scanner = new Scanner(System.in);
         double resp = scanner.nextDouble();
+        scanner.close();
         if (resp > 1) return resp / 100;
         return resp;
     }

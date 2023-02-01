@@ -16,7 +16,6 @@ public class Loja {
                 default: System.out.println("Opção inválida!");
             }
         } while (resp != 0);
-        scanner.close();
     }
 
 }

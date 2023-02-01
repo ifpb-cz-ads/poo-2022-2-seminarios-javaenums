@@ -26,7 +26,6 @@ public class AddRoupa {
             resp2 = scanner.nextLine();
             if (resp2.equalsIgnoreCase("s\n")) resp1 = -1;
         } while (resp1 != 0);
-        scanner.close();
     }
 
     public Roupa addCamisa() {
@@ -60,7 +59,6 @@ public class AddRoupa {
         double precoMin = setPrecoMin();
         double fator = setFator();
 
-        scanner.close();
         return new Camisa(nome, tamanhos, estampa, corDaRoupa, precoMin, fator, manga, gola);
     }
     
@@ -82,18 +80,27 @@ public class AddRoupa {
     }
 
     public Roupa addChinelo() {
+        Scanner scanner = new Scanner(System.in);
+
         String nome = setNome();
         CorDaRoupa corDaRoupa = setCor();
         Boolean estampa = hasEstampa();
-        String material = null;
+        String material;
         int tamMin = 0;
         int tamMax = 0;
 
-        // Resto do método
+        System.out.println("Qual eh o material?");
+        material = scanner.next();
+
+        System.out.println("Informe o valor do tamanho minimo:");
+        tamMin = scanner.nextInt();
+
+        System.out.println("Informe o valor do tamanho maximo:");
+        tamMax = scanner.nextInt();
 
         double precoMin = setPrecoMin();
         double fator = setFator();
-
+        
         return new Chinelo(nome, estampa, corDaRoupa, precoMin, fator, material, tamMin, tamMax);
     }
 
@@ -129,7 +136,6 @@ public class AddRoupa {
         double precoMin = setPrecoMin();
         double fator = setFator();
 
-        scanner.close();
         return new Bermudas(nome, tamanhos, estampa, corDaRoupa, precoMin, fator, bolso, genero);
     }
 
@@ -138,7 +144,6 @@ public class AddRoupa {
     private String setNome() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nInsira o nome da peça: ");
-        scanner.close();
         return scanner.nextLine();
     }
 
@@ -153,7 +158,6 @@ public class AddRoupa {
             if (!resp.equals("0")) tamanhos.add(resp);
         } while (!resp.equals("0"));
 
-        scanner.close();
         return tamanhos;
     }
 
@@ -165,7 +169,6 @@ public class AddRoupa {
         System.out.print("\nA peça possui estampa (s/n)? ");
         Scanner scanner = new Scanner(System.in);
         String resp = scanner.nextLine();
-        scanner.close();
         return resp.equalsIgnoreCase("s");
     }
 
@@ -173,7 +176,6 @@ public class AddRoupa {
         System.out.print("\nQual é o preço do menor tamnaho da peça? ");
         Scanner scanner = new Scanner(System.in);
         double resp = scanner.nextDouble();
-        scanner.close();
         return resp;
     }
 
@@ -181,7 +183,6 @@ public class AddRoupa {
         System.out.print("\nO quanto o preço aumenta de acordo com o tamanho da peça (%)? ");
         Scanner scanner = new Scanner(System.in);
         double resp = scanner.nextDouble();
-        scanner.close();
         if (resp > 1) return resp / 100;
         return resp;
     }
